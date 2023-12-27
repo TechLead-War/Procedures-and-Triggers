@@ -13,3 +13,9 @@ create function general_hospital.f_trigger()
 		end if;
 	end;
 	$$
+
+create trigger t_trigger
+	before insert
+	on general_hospital.physicians
+	for each row
+	execute procedure general_hospital.f_trigger();
